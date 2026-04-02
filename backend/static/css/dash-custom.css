@@ -1,0 +1,217 @@
+/* Dashboard Custom Styling */
+
+/* General Styles for Dashboard */
+.dash-app-container {
+  background-color: #121a2e;
+  font-family: "Inter", sans-serif;
+}
+
+/* Stat cards */
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #7c3aed, #3dccc7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.stat-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  opacity: 0.8;
+  color: #7c3aed;
+  margin-right: 15px;
+}
+
+.stat-icon.danger {
+  color: #f43f5e;
+}
+
+.stat-icon.success {
+  color: #3dccc7;
+}
+
+/* Log entry styling */
+.log-entry {
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.new-entry {
+  animation: highlight 2s ease-out;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: rgba(124, 58, 237, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* Threat level colors */
+.text-danger {
+  color: #f43f5e !important;
+}
+
+.text-warning {
+  color: #fb923c !important;
+}
+
+.text-info {
+  color: #3dccc7 !important;
+}
+
+.text-success {
+  color: #34d399 !important;
+}
+
+/* Action colors */
+.action-blocked {
+  color: #f43f5e !important;
+  font-weight: bold;
+}
+
+.action-allowed {
+  color: #3dccc7 !important;
+}
+
+/* Threat level styling in table */
+.threat-critical {
+  color: #f43f5e !important;
+  font-weight: bold;
+  background-color: rgba(244, 63, 94, 0.1);
+}
+
+.threat-high {
+  color: #fb923c !important;
+  font-weight: bold;
+  background-color: rgba(251, 146, 60, 0.1);
+}
+
+.threat-medium {
+  color: #fbbf24 !important;
+  background-color: rgba(251, 191, 36, 0.1);
+}
+
+.threat-low {
+  color: #34d399 !important;
+  background-color: rgba(52, 211, 153, 0.1);
+}
+
+/* Firewall table styling */
+.firewall-table {
+  width: 100%;
+  color: white;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.firewall-table th {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  text-align: left;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.firewall-table td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.firewall-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.firewall-table-container {
+  height: 300px;
+  overflow-y: auto;
+}
+
+/* Pulse animation for critical alerts */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Chart-specific styling */
+.chart-tooltip {
+  background: rgba(22, 26, 38, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+/* Network chart node styling */
+.network-node {
+  stroke-width: 2px;
+  stroke: white;
+}
+
+.network-node.service {
+  fill: #3dccc7;
+}
+
+.network-node.client {
+  fill: #92d050;
+}
+
+.network-node.attacker {
+  fill: #f43f5e;
+}
+
+.network-edge {
+  stroke-width: 1.5px;
+}
+
+.network-edge.attack {
+  stroke: #f43f5e;
+  stroke-dasharray: 5, 5;
+}
+
+.network-edge.normal {
+  stroke: #92d050;
+}
+
+/* Geographic map styling */
+.geo-country {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 0.5px;
+}
+
+/* Glassmorphism Card Effect */
+.glass-chart-card {
+  background: rgba(22, 26, 38, 0.85);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 20px;
+  margin: 10px 0;
+  color: white;
+}
+
+/* Chart hover effects */
+.plotly:hover {
+  filter: brightness(1.1);
+  transition: filter 0.3s ease;
+}

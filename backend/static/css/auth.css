@@ -1,0 +1,322 @@
+/**
+ * Authentication pages styling (login & register)
+ * Glassmorphism cybersecurity themed design
+ */
+
+/* Full Width Container - ensures the container takes full width */
+.full-width-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Auth Wrapper - Main centering container */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 150px);
+  width: 100%;
+  padding: 40px 20px;
+}
+
+/* Auth Container - Controls the width of the form */
+.auth-container {
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Card styling with glassmorphism */
+.glass-card {
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.05),
+    rgba(54, 215, 183, 0.05)
+  );
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Card Header */
+.card-header {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+/* Card Body */
+.card-body {
+  padding: 0;
+}
+
+/* Shield Icon */
+.shield-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 50%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.shield-icon::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.2);
+  animation: shield-pulse 2s infinite;
+}
+
+.shield-icon i {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shield-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Cyber Input Styling */
+.cyber-input-group {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-color);
+  z-index: 10;
+}
+
+.cyber-input {
+  height: 50px;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.5) !important;
+  border: 1px solid rgba(124, 58, 237, 0.2) !important;
+  border-radius: 8px !important;
+  color: var(--text-light) !important;
+  padding-left: 45px !important;
+  padding-right: 15px !important;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.cyber-input:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+}
+
+.cyber-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Toggle Password Button */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  z-index: 10;
+  padding: 5px;
+  transition: all 0.2s;
+}
+
+.toggle-password:hover {
+  color: var(--accent-color);
+}
+
+/* Button styling */
+.btn-cyber-primary {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--accent-color),
+    var(--secondary-accent)
+  );
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-glitch {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.btn-cyber-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
+}
+
+.btn-cyber-primary:hover .btn-glitch {
+  width: 120%;
+  left: -10%;
+  transition: all 0.6s ease;
+}
+
+.btn-cyber-primary:active {
+  transform: translateY(0);
+}
+
+.btn-cyber-primary.disabled,
+.btn-cyber-primary:disabled {
+  background: linear-gradient(
+    90deg,
+    rgba(124, 58, 237, 0.5),
+    rgba(54, 215, 183, 0.5)
+  );
+}
+
+/* Spinner animation */
+.login-spinner,
+.register-spinner {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* Footer styling */
+.cyber-footer {
+  width: 100%;
+  text-align: center;
+}
+
+.cyber-footer .text-accent {
+  font-weight: 600;
+}
+
+/* Glow Text */
+.glow-text {
+  color: var(--text-light);
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+  margin-bottom: 10px;
+}
+
+/* Add some background elements */
+.auth-wrapper::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(124, 58, 237, 0.03) 0%,
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Background Cyber Elements */
+.cyber-element {
+  position: absolute;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .auth-wrapper {
+    padding: 20px 15px;
+  }
+
+  .glass-card {
+    padding: 20px;
+  }
+
+  .shield-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .shield-icon i {
+    font-size: 1.8rem;
+  }
+
+  .cyber-input {
+    height: 45px;
+    font-size: 0.95rem;
+  }
+
+  .btn-cyber-primary {
+    height: 45px;
+    font-size: 0.95rem;
+  }
+}

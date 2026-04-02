@@ -1,0 +1,677 @@
+{% extends "base.html" %} {% block title %}Dashboard - dDOS.Ai{% endblock %} {%
+block content %}
+<!-- Dashboard Header -->
+<div class="dashboard-header fade-in">
+  <div class="glass-card mb-4">
+    <div class="glass-inner">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1 class="mb-0 glow-text">
+            <i class="fas fa-chart-line text-accent"></i> Security Dashboard
+          </h1>
+          <p class="text-muted mt-2 mb-0">
+            Real-time network security monitoring
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end mt-3 mt-md-0">
+          <div class="dashboard-controls">
+            <div class="status-indicator online">
+              <span class="status-dot"></span>
+              <span class="status-text">Protection Active</span>
+            </div>
+            <button class="btn btn-glass mx-2" onclick="toggleFullscreen()">
+              <i class="fas fa-expand"></i> Fullscreen
+            </button>
+            <button class="btn btn-glass-outline" id="refreshBtn">
+              <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dashboard Stats -->
+<div class="row g-4 mb-4">
+  <div class="col-md-3">
+    <div class="glass-card stat-card fade-in">
+      <div class="glass-inner">
+        <div class="stat-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="stat-info">
+          <h3 class="counter" data-target="99.8">99.8%</h3>
+          <p>Protection Rate</p>
+        </div>
+        <div class="stat-chart">
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style="width: 99.8%"
+              aria-valuenow="99.8"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="glass-card stat-card fade-in" style="animation-delay: 0.2s">
+      <div class="glass-inner">
+        <div class="stat-icon">
+          <i class="fas fa-tachometer-alt"></i>
+        </div>
+        <div class="stat-info">
+          <h3 class="counter" data-target="45">45ms</h3>
+          <p>Avg. Response Time</p>
+        </div>
+        <div class="stat-chart">
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-success"
+              role="progressbar"
+              style="width: 85%"
+              aria-valuenow="85"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="glass-card stat-card fade-in" style="animation-delay: 0.4s">
+      <div class="glass-inner">
+        <div class="stat-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="stat-info">
+          <h3 class="counter" data-target="143">143</h3>
+          <p>AI Models Active</p>
+        </div>
+        <div class="stat-chart">
+          <div class="progress">
+            <div
+              class="progress-bar progress-bar-accent"
+              role="progressbar"
+              style="width: 90%"
+              aria-valuenow="90"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="glass-card stat-card fade-in" style="animation-delay: 0.6s">
+      <div class="glass-inner">
+        <div class="stat-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="stat-info">
+          <h3 class="counter" data-target="12547">12,547</h3>
+          <p>Threats Blocked Today</p>
+        </div>
+        <div class="stat-chart">
+          <div
+            class="progress-bar progress-bar-danger"
+            role="progressbar"
+            style="width: 75%"
+            aria-valuenow="75"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Email Alert Section -->
+<div class="glass-card mb-4">
+  <div class="glass-inner">
+    <h4 class="card-title">
+      <i class="fas fa-bell text-accent"></i> Alert Notifications
+    </h4>
+    <p class="card-text">
+      Send alert notifications to your security team when threats are detected.
+    </p>
+
+    <div class="row mb-3">
+      <div class="col-md-8">
+        <div class="cyber-input-group">
+          <div class="input-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <input
+            type="email"
+            class="form-control cyber-input"
+            id="alert-recipient"
+            placeholder="Enter recipient email"
+            autocomplete="email"
+          />
+        </div>
+      </div>
+      <div class="col-md-4 d-grid">
+        <button id="send-alert-btn" class="btn cosmic-btn">
+          <span class="btn-text">
+            <i class="fas fa-paper-plane"></i> Send Alert
+          </span>
+          <span class="btn-glitch"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="alert-result">
+      <!-- Alert results will appear here -->
+    </div>
+  </div>
+</div>
+
+<!-- Embed Dash App (with glassmorphism) -->
+<div class="glass-card dash-container fade-in">
+  <div class="glass-inner p-0">
+    <div class="dash-header">
+      <h5 class="mb-0"><i class="fas fa-analytics"></i> Advanced Analytics</h5>
+      <div class="dash-controls">
+        <button class="btn-icon" id="minimizeBtn">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button class="btn-icon" id="expandBtn" onclick="toggleFullscreen()">
+          <i class="fas fa-expand"></i>
+        </button>
+      </div>
+    </div>
+    <div class="dash-app-container">
+      <iframe src="/dash/" id="dashboardFrame"> </iframe>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block extra_css %}
+<style>
+  /* Dashboard Specific Styles */
+  .dashboard-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .dashboard-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: rgba(25, 33, 58, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+  }
+
+  .status-indicator.online .status-dot {
+    background-color: #36d7b7;
+    box-shadow: 0 0 10px #36d7b7;
+    animation: pulse 1.5s infinite;
+  }
+
+  .status-indicator.offline .status-dot {
+    background-color: #ff3a8c;
+    box-shadow: 0 0 10px #ff3a8c;
+  }
+
+  /* Stat Cards */
+  .stat-card {
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .stat-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2rem;
+    color: var(--accent-color);
+    opacity: 0.5;
+  }
+
+  .stat-info {
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+
+  .stat-info h3 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    color: var(--text-light);
+  }
+
+  .stat-info p {
+    color: var(--text-muted);
+    margin-bottom: 0;
+  }
+
+  .stat-chart {
+    margin-top: 15px;
+  }
+
+  .progress {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    background: linear-gradient(
+      90deg,
+      var(--accent-color),
+      var(--accent-color-alt)
+    );
+    border-radius: 5px;
+  }
+
+  .progress-bar-success {
+    background: linear-gradient(90deg, #36d7b7, #2a9d8f);
+  }
+
+  .progress-bar-accent {
+    background: linear-gradient(90deg, #7c3aed, #6d28d9);
+  }
+
+  .progress-bar-danger {
+    background: linear-gradient(90deg, #ff3a8c, #e83c77);
+  }
+
+  /* Dashboard App Container */
+  .dash-container {
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--glass-border);
+    background: rgba(25, 33, 58, 0.5);
+  }
+
+  .dash-controls {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+
+  .dash-app-container {
+    padding: 0;
+    position: relative;
+    height: calc(100vh - 400px);
+    min-height: 500px;
+  }
+
+  #dashboardFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Animation for counter */
+  @keyframes count {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .counter {
+    animation: count 1s ease forwards;
+  }
+
+  /* Animation for status dot */
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .dashboard-controls {
+      justify-content: flex-start;
+      margin-top: 15px;
+    }
+
+    .stat-card {
+      margin-bottom: 1rem;
+    }
+
+    .dash-app-container {
+      height: calc(100vh - 450px);
+    }
+  }
+
+  /* Enhanced Email Alert Section Styles */
+  .cyber-input-group {
+    position: relative;
+    width: 100%;
+  }
+
+  .cyber-input-group .input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    z-index: 10;
+  }
+
+  .cyber-input {
+    height: 50px;
+    padding-left: 45px !important;
+    background: rgba(15, 23, 42, 0.5) !important;
+    border: 1px solid rgba(124, 58, 237, 0.2) !important;
+    color: var(--text-light) !important;
+    border-radius: 8px !important;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .cyber-input:focus {
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+  }
+
+  /* Cosmic Button Style */
+  .cosmic-btn {
+    background: linear-gradient(
+      90deg,
+      rgba(124, 58, 237, 1),
+      rgba(170, 54, 215, 1)
+    ) !important;
+    border: none !important;
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(124, 58, 237, 0.3);
+  }
+
+  .cosmic-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(124, 58, 237, 0.5);
+  }
+
+  .cosmic-btn:active {
+    transform: translateY(1px);
+  }
+
+  .cosmic-btn .btn-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cosmic-btn .btn-glitch {
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    transition: all 0.4s ease;
+    z-index: 1;
+  }
+
+  .cosmic-btn:hover .btn-glitch {
+    width: 120%;
+    left: -10%;
+    transition: all 0.6s ease;
+  }
+</style>
+{% endblock %} {% block extra_js %}
+<script>
+  // Toggle fullscreen functionality
+  function toggleFullscreen() {
+    const frame = document.getElementById("dashboardFrame");
+    if (!document.fullscreenElement) {
+      if (frame.requestFullscreen) {
+        frame.requestFullscreen();
+      } else if (frame.webkitRequestFullscreen) {
+        /* Safari */
+        frame.webkitRequestFullscreen();
+      } else if (frame.msRequestFullscreen) {
+        /* IE11 */
+        frame.msRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        /* IE11 */
+        document.msExitFullscreen();
+      }
+    }
+  }
+
+  // Adjust iframe height on window resize
+  window.addEventListener("resize", function () {
+    const frame = document.getElementById("dashboardFrame");
+    frame.style.height = `${window.innerHeight - 400}px`;
+    if (window.innerHeight < 800) {
+      frame.style.height = "500px";
+    }
+  });
+
+  // Initialize counters
+  document.addEventListener("DOMContentLoaded", function () {
+    // Counter animation
+    const counters = document.querySelectorAll(".counter");
+    const speed = 200;
+
+    counters.forEach((counter) => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText
+          .replace(/,/g, "")
+          .replace(/[^\d.-]/g, "");
+        const increment = target / speed;
+
+        if (count < target) {
+          // Format with commas for thousands
+          let formatted = Math.ceil(count + increment);
+          if (formatted > 999) {
+            formatted = formatted
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          }
+
+          // Add unit suffix if present in original
+          if (counter.innerText.includes("%")) {
+            formatted += "%";
+          } else if (counter.innerText.includes("ms")) {
+            formatted += "ms";
+          }
+
+          counter.innerText = formatted;
+          setTimeout(updateCount, 1);
+        } else {
+          // Ensure exact target display with original formatting
+          let finalFormat = target;
+          if (target > 999) {
+            finalFormat = target
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          }
+
+          if (counter.innerText.includes("%")) {
+            finalFormat += "%";
+          } else if (counter.innerText.includes("ms")) {
+            finalFormat += "ms";
+          }
+
+          counter.innerText = finalFormat;
+        }
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            updateCount();
+          }
+        },
+        { threshold: [0.5] }
+      );
+
+      observer.observe(counter);
+    });
+
+    // Refresh button functionality
+    document
+      .getElementById("refreshBtn")
+      .addEventListener("click", function () {
+        const frame = document.getElementById("dashboardFrame");
+        frame.src = frame.src;
+
+        // Animate the refresh icon
+        this.querySelector("i").classList.add("fa-spin");
+        setTimeout(() => {
+          this.querySelector("i").classList.remove("fa-spin");
+        }, 1000);
+
+        // Reset and replay counter animations
+        counters.forEach((counter) => {
+          counter.innerText = "0";
+          setTimeout(() => {
+            const updateCount = () => {
+              const target = +counter.getAttribute("data-target");
+              const count = +counter.innerText
+                .replace(/,/g, "")
+                .replace(/[^\d.-]/g, "");
+              const increment = target / speed;
+
+              if (count < target) {
+                let formatted = Math.ceil(count + increment);
+                if (formatted > 999) {
+                  formatted = formatted
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+
+                if (
+                  counter.getAttribute("data-target").toString().includes("%")
+                ) {
+                  formatted += "%";
+                } else if (
+                  counter.getAttribute("data-target").toString().includes("ms")
+                ) {
+                  formatted += "ms";
+                }
+
+                counter.innerText = formatted;
+                setTimeout(updateCount, 1);
+              } else {
+                let finalFormat = target;
+                if (target > 999) {
+                  finalFormat = target
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+
+                if (
+                  counter.getAttribute("data-target").toString().includes("%")
+                ) {
+                  finalFormat += "%";
+                } else if (
+                  counter.getAttribute("data-target").toString().includes("ms")
+                ) {
+                  finalFormat += "ms";
+                }
+
+                counter.innerText = finalFormat;
+              }
+            };
+            updateCount();
+          }, 100);
+        });
+      });
+
+    // Minimize functionality
+    document
+      .getElementById("minimizeBtn")
+      .addEventListener("click", function () {
+        const container = document.querySelector(".dash-app-container");
+        if (container.style.display === "none") {
+          container.style.display = "block";
+          this.innerHTML = '<i class="fas fa-minus"></i>';
+        } else {
+          container.style.display = "none";
+          this.innerHTML = '<i class="fas fa-plus"></i>';
+        }
+      });
+  });
+</script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+<script src="{{ url_for('static', filename='js/notification.js') }}"></script>
+{% endblock %}

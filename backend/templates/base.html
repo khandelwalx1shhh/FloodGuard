@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}dDOS.Ai{% endblock %}</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='base-styles.css') }}"
+    />
+    {% block extra_css %}{% endblock %}
+    <style>
+      /* Loading Screen Styles */
+      .loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #1a1a1a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s, visibility 0.5s;
+      }
+
+      .cyber-loader {
+        position: relative;
+        width: 200px;
+        height: 200px;
+      }
+
+      .cyber-loader::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 4px solid transparent;
+        border-top-color: #17a2b8;
+        border-right-color: #17a2b8;
+        border-radius: 50%;
+        animation: cyberspin 2s linear infinite;
+      }
+
+      .cyber-loader::after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border: 4px solid transparent;
+        border-top-color: #00ff9d;
+        border-left-color: #00ff9d;
+        border-radius: 50%;
+        animation: cyberspin 1.5s linear infinite reverse;
+      }
+
+      .loader-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+      }
+
+      .loader-icon {
+        font-size: 3rem;
+        color: #17a2b8;
+        animation: pulse 1.5s infinite;
+      }
+
+      .loader-text {
+        margin-top: 20px;
+        color: #fff;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: glow 1.5s ease-in-out infinite alternate;
+      }
+
+      .cyber-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: #17a2b8;
+        border-radius: 50%;
+        animation: particleFloat 3s infinite;
+      }
+
+      @keyframes cyberspin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 5px #17a2b8, 0 0 10px #17a2b8, 0 0 15px #17a2b8;
+        }
+        to {
+          text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d, 0 0 30px #00ff9d;
+        }
+      }
+
+      @keyframes particleFloat {
+        0% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) translateX(50px);
+          opacity: 0;
+        }
+      }
+
+      .loader-wrapper.fade-out {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      body.loading {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="dark-theme loading">
+    <!-- Loading Screen -->
+    <div class="loader-wrapper">
+      <div class="cyber-loader">
+        <div class="loader-content">
+          <i class="fas fa-shield-alt loader-icon"></i>
+          <div class="loader-text">INITIALIZING SECURITY</div>
+        </div>
+      </div>
+      <div class="cyber-particles">
+        <!-- Particles will be added via JavaScript -->
+      </div>
+    </div>
+
+    <!-- Network Background -->
+    <canvas id="network-bg"></canvas>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('index') }}">
+            <i class="fas fa-shield-alt text-accent"></i> dDOS.Ai
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">
+                  <i class="fas fa-home"></i> Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">
+                  <i class="fas fa-info-circle"></i> About
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('documentation') }}">
+                  <i class="fas fa-book"></i> Docs
+                </a>
+              </li>
+              {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">
+                  <i class="fas fa-chart-line"></i> Dashboard
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+            <ul class="navbar-nav">
+              {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">
+                  <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="btn btn-outline-accent ms-2"
+                  href="{{ url_for('register') }}"
+                >
+                  <i class="fas fa-user-plus"></i> Register
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Flash Messages -->
+      <div class="container mt-5 pt-4">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div
+          class="alert glass-alert alert-{{ category }} alert-dismissible fade show"
+          role="alert"
+        >
+          {{ message }}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+          ></button>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+      </div>
+
+      <!-- Main Content -->
+      <main class="container mt-4">{% block content %}{% endblock %}</main>
+
+      <!-- Footer -->
+      <footer class="footer glass-footer text-light mt-5">
+        <div class="container py-3">
+          <div class="row">
+            <div class="col-md-4">
+              <h5 class="glow-text">
+                <i class="fas fa-shield-alt text-accent"></i> dDOS.Ai
+              </h5>
+              <p>Advanced DDoS Protection powered by AI</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Quick Links</h5>
+              <ul class="list-unstyled footer-links">
+                <li>
+                  <a href="{{ url_for('documentation') }}">Documentation</a>
+                </li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Contact</h5>
+              <p>
+                <i class="fas fa-envelope text-accent"></i>
+                support@ddos.ai<br />
+                <i class="fas fa-globe text-accent"></i> www.ddos.ai
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <script src="{{ url_for('static', filename='network-bg.js') }}"></script>
+    <script src="{{ url_for('static', filename='loader.js') }}"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const particles = document.querySelector(".cyber-particles");
+        const loaderWrapper = document.querySelector(".loader-wrapper");
+        const loaderText = document.querySelector(".loader-text");
+
+        // Create floating particles
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.animationDelay = Math.random() * 2 + "s";
+          particles.appendChild(particle);
+        }
+
+        const messages = [
+          "INITIALIZING SECURITY",
+          "SCANNING NETWORK",
+          "LOADING AI MODELS",
+          "ACTIVATING DEFENSE",
+        ];
+        let messageIndex = 0;
+
+        // Cycle through messages
+        setInterval(() => {
+          loaderText.style.opacity = 0;
+          setTimeout(() => {
+            loaderText.textContent = messages[messageIndex];
+            loaderText.style.opacity = 1;
+            messageIndex = (messageIndex + 1) % messages.length;
+          }, 500);
+        }, 2000);
+
+        // Hide loader
+        window.addEventListener("load", () => {
+          setTimeout(() => {
+            loaderWrapper.classList.add("fade-out");
+            document.body.classList.remove("loading");
+          }, 800);
+        });
+      });
+    </script>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

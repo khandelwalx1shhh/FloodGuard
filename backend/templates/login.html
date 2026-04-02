@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% block title %}Login - dDOS.Ai{% endblock %} {%
+block content %}
+<div class="full-width-container">
+  <div class="auth-wrapper">
+    <div class="auth-container">
+      <div class="glass-card login-card">
+        <div class="card-header text-center">
+          <div class="shield-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h2 class="glow-text">Login</h2>
+          <p class="text-muted">Access your dDOS.Ai dashboard</p>
+        </div>
+
+        <div class="card-body">
+          <form method="POST" id="loginForm" action="{{ url_for('login') }}">
+            <div class="form-group mb-4">
+              <div class="cyber-input-group">
+                <div class="input-icon">
+                  <i class="fas fa-user"></i>
+                </div>
+                <input
+                  type="text"
+                  class="form-control cyber-input"
+                  name="username"
+                  placeholder="Username"
+                  required
+                  autocomplete="username"
+                />
+              </div>
+            </div>
+
+            <div class="form-group mb-4">
+              <div class="cyber-input-group">
+                <div class="input-icon">
+                  <i class="fas fa-lock"></i>
+                </div>
+                <input
+                  type="password"
+                  class="form-control cyber-input"
+                  name="password"
+                  placeholder="Password"
+                  required
+                  autocomplete="current-password"
+                />
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-cyber-primary">
+                <span class="btn-text"
+                  ><i class="fas fa-sign-in-alt"></i> Login</span
+                >
+                <span class="btn-glitch"></span>
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-4 text-center">
+            <span class="text-muted">Registration coming soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cyber-footer text-center mt-3">
+        <p class="small text-muted">
+          Secured by <span class="text-accent">dDOS.Ai</span> Protection
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block extra_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/auth.css') }}"
+/>
+{% endblock %} {% block extra_js %}
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+{% endblock %}

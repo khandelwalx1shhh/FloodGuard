@@ -1,0 +1,336 @@
+:root {
+  --glass-bg: rgba(25, 33, 58, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  --accent-color: #7c3aed;
+  --accent-color-alt: #5b21b6;
+  --secondary-accent: #36d7b7;
+  --danger-accent: #ff3a8c;
+  --bg-dark: #0f172a;
+  --bg-darker: #080d16;
+  --text-light: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-darker));
+  color: var(--text-light);
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+/* Glass Cards */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-inner {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+}
+
+/* Buttons */
+.btn-glass {
+  background: rgba(124, 58, 237, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 12px;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
+}
+
+.btn-glass:hover {
+  background: rgba(124, 58, 237, 0.5);
+  border-color: rgba(124, 58, 237, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(124, 58, 237, 0.4);
+  color: white;
+}
+
+.btn-glass-outline {
+  background: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-glass-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  color: white;
+}
+
+.btn-glass-accent {
+  background: linear-gradient(
+    135deg,
+    var(--accent-color),
+    var(--accent-color-alt)
+  );
+  border: none;
+  border-radius: 12px;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+}
+
+.btn-glass-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.5);
+  color: white;
+}
+
+/* Text Styling */
+.section-title {
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title:after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-color),
+    var(--secondary-accent)
+  );
+  border-radius: 4px;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.glow-text {
+  color: white;
+  text-shadow: 0 0 15px rgba(124, 58, 237, 0.7);
+}
+
+/* Feature Icons Animation */
+.feature-icon {
+  transition: transform 0.5s ease;
+}
+
+.glass-card:hover .feature-icon {
+  transform: scale(1.2) rotate(5deg);
+  color: var(--accent-color);
+}
+
+/* Map Styling */
+.threat-map-container {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  padding: 15px;
+  border-radius: 12px;
+  color: white;
+}
+
+.glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.map-title h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.legend {
+  display: flex;
+  gap: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.dot.red {
+  background: var(--danger-accent);
+}
+.dot.green {
+  background: var(--secondary-accent);
+}
+
+.attack-line {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.city-point {
+  animation: pulse 2s infinite;
+}
+
+.city-label {
+  font-weight: 500;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Cosmic background for sections */
+.stats-section {
+  background: linear-gradient(135deg, #121a2e, #0c1221);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.stats-card {
+  height: 100%;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+/* CTA Section styling */
+.cta-section {
+  position: relative;
+  padding: 6rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(91, 33, 182, 0.1),
+    rgba(54, 215, 183, 0.1)
+  );
+}
+
+.cta-card {
+  padding: 2rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Text colors */
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+/* Enhanced fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 768px) {
+  .glass-inner {
+    padding: 1rem;
+  }
+
+  .legend {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .btn-glass,
+  .btn-glass-outline,
+  .btn-glass-accent {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}

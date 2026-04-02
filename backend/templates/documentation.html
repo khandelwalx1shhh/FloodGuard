@@ -1,0 +1,516 @@
+{% extends "base.html" %} {% block title %}Documentation - dDOS.Ai{% endblock %}
+{% block content %}
+<div class="documentation-container fade-in">
+  <!-- Documentation Header -->
+  <div class="doc-header text-center mb-5">
+    <h1 class="display-4 mb-3 glow-text">
+      <i class="fas fa-book text-accent"></i> Documentation
+    </h1>
+    <p class="lead">Everything you need to know about dDOS.Ai</p>
+  </div>
+
+  <!-- Documentation Navigation -->
+  <div class="row">
+    <div class="col-md-3">
+      <div class="glass-card sticky-sidebar" style="top: 100px">
+        <div class="glass-inner">
+          <h5 class="mb-3">
+            <i class="fas fa-list-ul text-accent"></i> Contents
+          </h5>
+          <nav class="nav flex-column doc-nav">
+            <a class="nav-link" href="#getting-started">
+              <i class="fas fa-rocket"></i> Getting Started
+            </a>
+            <a class="nav-link" href="#features">
+              <i class="fas fa-star"></i> Features
+            </a>
+            <a class="nav-link" href="#ai-engine">
+              <i class="fas fa-brain"></i> AI Engine
+            </a>
+            <a class="nav-link" href="#dashboard">
+              <i class="fas fa-chart-line"></i> Dashboard Guide
+            </a>
+            <a class="nav-link" href="#api">
+              <i class="fas fa-code"></i> API Reference
+            </a>
+            <a class="nav-link" href="#faq">
+              <i class="fas fa-question-circle"></i> FAQ
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Documentation Content -->
+    <div class="col-md-9">
+      <!-- Getting Started -->
+      <section id="getting-started" class="doc-section glass-card mb-4 fade-in">
+        <div class="glass-inner">
+          <h2 class="section-title">
+            <i class="fas fa-rocket text-accent"></i> Getting Started
+          </h2>
+          <p class="lead">Welcome to dDOS.Ai! Let's get you up and running.</p>
+
+          <h4 class="mt-4">Quick Start Guide</h4>
+          <ol class="cyber-list">
+            <li class="mb-3">
+              <span class="step-number">01</span>
+              Create an account or log in
+            </li>
+            <li class="mb-3">
+              <span class="step-number">02</span>
+              Configure your network settings
+            </li>
+            <li class="mb-3">
+              <span class="step-number">03</span>
+              Set up your protection preferences
+            </li>
+            <li class="mb-3">
+              <span class="step-number">04</span>
+              Monitor your dashboard
+            </li>
+          </ol>
+
+          <div class="cyber-alert">
+            <div class="alert-icon">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="alert-content">
+              New to DDoS protection? Check out our
+              <a href="#basics" class="text-accent">basics guide</a>.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features" class="doc-section glass-card mb-4 fade-in">
+        <div class="glass-inner">
+          <h2 class="section-title">
+            <i class="fas fa-star text-accent"></i> Features
+          </h2>
+          <div class="row g-4 mt-3">
+            <div class="col-md-6">
+              <div class="feature-glass-card">
+                <div class="feature-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Real-time Protection</h4>
+                  <p>
+                    Instant detection and mitigation of DDoS attacks using our
+                    AI engine.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature-glass-card">
+                <div class="feature-icon">
+                  <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Advanced Analytics</h4>
+                  <p>
+                    Detailed insights into attack patterns and network traffic.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature-glass-card">
+                <div class="feature-icon">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>AI Learning</h4>
+                  <p>
+                    Continuous learning and adaptation to new attack vectors.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature-glass-card">
+                <div class="feature-icon">
+                  <i class="fas fa-bolt"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Low Latency</h4>
+                  <p>
+                    Minimal impact on legitimate traffic while blocking attacks.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Engine -->
+      <section id="ai-engine" class="doc-section glass-card mb-4 fade-in">
+        <div class="glass-inner">
+          <h2 class="section-title">
+            <i class="fas fa-brain text-accent"></i> AI Engine
+          </h2>
+          <p class="lead">
+            Our advanced AI engine uses multiple models for comprehensive
+            protection:
+          </p>
+
+          <div class="ai-models mt-4">
+            <div class="model-glass-card mb-4">
+              <h4 class="model-title">
+                <div class="model-icon">
+                  <i class="fas fa-network-wired"></i>
+                </div>
+                Deep Q-Learning Network (DQN)
+              </h4>
+              <p>Handles real-time decision making for attack mitigation.</p>
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Model Architecture</span>
+                  <div class="code-actions">
+                    <button class="btn-icon" onclick="copyCode(this)">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <pre><code>Model Architecture:
+- Input Layer: Network state vectors
+- Hidden Layers: Dense neural networks
+- Output: Action probabilities</code></pre>
+              </div>
+            </div>
+
+            <div class="model-glass-card mb-4">
+              <h4 class="model-title">
+                <div class="model-icon">
+                  <i class="fas fa-project-diagram"></i>
+                </div>
+                Graph Neural Network (GNN)
+              </h4>
+              <p>Analyzes traffic patterns and network topology.</p>
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Components</span>
+                  <div class="code-actions">
+                    <button class="btn-icon" onclick="copyCode(this)">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <pre><code>Components:
+- Node Feature Extraction
+- Edge Classification
+- Pattern Recognition</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Guide -->
+      <section id="dashboard" class="doc-section glass-card mb-4 fade-in">
+        <div class="glass-inner">
+          <h2 class="section-title">
+            <i class="fas fa-chart-line text-accent"></i> Dashboard Guide
+          </h2>
+          <p class="lead">
+            Learn how to use the dDOS.Ai dashboard effectively.
+          </p>
+
+          <div class="dashboard-components mt-4">
+            <h4 class="mb-3">Key Components</h4>
+            <ul class="cyber-features-list">
+              <li>
+                <div class="cyber-feature-icon">
+                  <i class="fas fa-chart-area"></i>
+                </div>
+                <div class="cyber-feature-content">
+                  <strong>Attack Graph</strong>
+                  <p>
+                    Visualizes attack intensity over time with interactive
+                    controls for time range selection.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="cyber-feature-icon">
+                  <i class="fas fa-list"></i>
+                </div>
+                <div class="cyber-feature-content">
+                  <strong>Event Log</strong>
+                  <p>
+                    Real-time attack detection and mitigation events with
+                    filtering capabilities.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="cyber-feature-icon">
+                  <i class="fas fa-table"></i>
+                </div>
+                <div class="cyber-feature-content">
+                  <strong>Statistics Table</strong>
+                  <p>
+                    Detailed metrics and analytics with export functionality for
+                    reporting.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- API Reference -->
+      <section id="api" class="doc-section glass-card mb-4 fade-in">
+        <div class="glass-inner">
+          <h2 class="section-title">
+            <i class="fas fa-code text-accent"></i> API Reference
+          </h2>
+          <p class="lead">Integrate dDOS.Ai with your existing systems.</p>
+
+          <div class="api-endpoints mt-4">
+            <h4 class="mb-3">REST API Endpoints</h4>
+            <div class="endpoint-glass-card mb-4">
+              <div class="endpoint-header">
+                <span class="http-method get">GET</span>
+                <span class="endpoint-path">/api/status</span>
+                <div class="endpoint-tag">Returns system status</div>
+              </div>
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Response</span>
+                  <div class="code-actions">
+                    <button class="btn-icon" onclick="copyCode(this)">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <pre><code>{
+    "status": "active",
+    "protected_endpoints": ["web", "api"],
+    "current_threats": 0
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="endpoint-glass-card mb-4">
+              <div class="endpoint-header">
+                <span class="http-method post">POST</span>
+                <span class="endpoint-path">/api/configure</span>
+                <div class="endpoint-tag">Configure protection settings</div>
+              </div>
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Request Body</span>
+                  <div class="code-actions">
+                    <button class="btn-icon" onclick="copyCode(this)">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <pre><code>{
+    "threshold": 1000,
+    "mode": "aggressive",
+    "whitelist": ["192.168.1.0/24"]
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="doc-section glass-card mb-4 fade-in">
+        <div class="glass-inner">
+          <h2 class="section-title">
+            <i class="fas fa-question-circle text-accent"></i> FAQ
+          </h2>
+
+          <div class="cyber-accordion" id="faqAccordion">
+            <div class="cyber-accordion-item">
+              <h3 class="cyber-accordion-header">
+                <button
+                  class="cyber-accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq1"
+                >
+                  <i class="fas fa-question"></i>
+                  <span>How does the AI detection work?</span>
+                  <i class="fas fa-chevron-down toggle-icon"></i>
+                </button>
+              </h3>
+              <div
+                id="faq1"
+                class="cyber-accordion-collapse collapse show"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="cyber-accordion-body">
+                  Our AI system uses a combination of Deep Q-Learning and Graph
+                  Neural Networks to analyze traffic patterns and make real-time
+                  decisions about potential threats. The system continuously
+                  learns from new attack patterns to improve detection accuracy.
+                </div>
+              </div>
+            </div>
+
+            <div class="cyber-accordion-item">
+              <h3 class="cyber-accordion-header">
+                <button
+                  class="cyber-accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq2"
+                >
+                  <i class="fas fa-question"></i>
+                  <span>What types of attacks can it detect?</span>
+                  <i class="fas fa-chevron-down toggle-icon"></i>
+                </button>
+              </h3>
+              <div
+                id="faq2"
+                class="cyber-accordion-collapse collapse"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="cyber-accordion-body">
+                  dDOS.Ai can detect and mitigate various types of DDoS attacks,
+                  including volumetric attacks (UDP floods, ICMP floods),
+                  protocol attacks (SYN floods, fragmented packet attacks), and
+                  application layer attacks (HTTP floods, slow loris, DNS query
+                  floods).
+                </div>
+              </div>
+            </div>
+
+            <div class="cyber-accordion-item">
+              <h3 class="cyber-accordion-header">
+                <button
+                  class="cyber-accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq3"
+                >
+                  <i class="fas fa-question"></i>
+                  <span>How quickly does it respond to attacks?</span>
+                  <i class="fas fa-chevron-down toggle-icon"></i>
+                </button>
+              </h3>
+              <div
+                id="faq3"
+                class="cyber-accordion-collapse collapse"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="cyber-accordion-body">
+                  Our system typically responds to attacks within milliseconds,
+                  with continuous monitoring and real-time mitigation
+                  capabilities. The average response time is 45ms, but this can
+                  vary based on attack complexity and network conditions.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block extra_css %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/documentation.css') }}"
+/>
+<style>
+  /* Enhanced sticky sidebar */
+  .sticky-sidebar {
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    transition: all 0.3s ease;
+  }
+
+  /* Style the active link */
+  .doc-nav .nav-link.active {
+    background-color: rgba(124, 58, 237, 0.2);
+    border-left: 3px solid #7c3aed;
+    font-weight: bold;
+  }
+
+  /* Custom scrollbar for sidebar */
+  .sticky-sidebar::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .sticky-sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .sticky-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.5);
+    border-radius: 3px;
+  }
+
+  /* Hover effect for nav links */
+  .doc-nav .nav-link {
+    padding: 10px 15px;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .doc-nav .nav-link:hover {
+    background-color: rgba(124, 58, 237, 0.1);
+    border-left: 3px solid rgba(124, 58, 237, 0.5);
+  }
+</style>
+{% endblock %} {% block extra_js %}
+<script src="{{ url_for('static', filename='js/documentation.js') }}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get all section elements
+    const sections = document.querySelectorAll(".doc-section");
+    // Get all navigation links
+    const navLinks = document.querySelectorAll(".doc-nav .nav-link");
+
+    // Add scroll event listener
+    window.addEventListener("scroll", function () {
+      let current = "";
+
+      // Get current visible section
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 100) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      // Update active state in navigation
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").substring(1) === current) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+    // Smooth scroll for navigation links
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+
+        window.scrollTo({
+          top: targetSection.offsetTop - 50,
+          behavior: "smooth",
+        });
+      });
+    });
+  });
+</script>
+{% endblock %}

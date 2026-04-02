@@ -1,0 +1,566 @@
+{% extends "base.html" %} {% block title %}About - dDOS.Ai{% endblock %} {%
+block content %}
+<!-- Hero Section -->
+<section class="about-hero text-center py-5 mb-5 fade-in">
+  <div class="container">
+    <h1 class="display-4 mb-4 glow-text">
+      <i class="fas fa-shield-alt text-accent"></i> About dDOS.Ai
+    </h1>
+    <p class="lead mb-4">Pioneering AI-Powered DDoS Protection</p>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="glass-card">
+          <div class="glass-inner">
+            <p class="mb-0">
+              dDOS.Ai is at the forefront of cybersecurity innovation, combining
+              artificial intelligence with advanced network protection to create
+              a robust defense against modern DDoS attacks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission Section -->
+<section class="mission-section py-5 mb-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="glass-card fade-in">
+          <div class="glass-inner">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="lead">
+              To provide cutting-edge DDoS protection through the power of
+              artificial intelligence, making the internet safer for everyone.
+            </p>
+            <ul class="cyber-list mt-4">
+              <li class="mb-3">
+                <span class="cyber-check"
+                  ><i class="fas fa-check-circle text-accent"></i
+                ></span>
+                Innovative AI-driven protection
+              </li>
+              <li class="mb-3">
+                <span class="cyber-check"
+                  ><i class="fas fa-check-circle text-accent"></i
+                ></span>
+                Real-time threat detection
+              </li>
+              <li class="mb-3">
+                <span class="cyber-check"
+                  ><i class="fas fa-check-circle text-accent"></i
+                ></span>
+                Continuous learning and adaptation
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="tech-image text-center fade-in">
+          <div class="network-globe">
+            <i class="fas fa-network-wired fa-10x text-accent opacity-25"></i>
+            <div class="pulse-circle"></div>
+            <div class="pulse-circle delay-1"></div>
+            <div class="pulse-circle delay-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section py-5 mb-5">
+  <div class="container">
+    <h2 class="text-center mb-5 section-title">Our Team</h2>
+    <div class="row g-5 justify-content-center">
+      <!-- Team Member 1 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="hex-container fade-in">
+          <div class="hex-card">
+            <div class="hex-content">
+              <div class="hex-img-wrapper">
+                <img
+                  src="{{ url_for('static', filename='images/vaibhav.jpg') }}"
+                  alt="Vaibhav Kumar"
+                  class="team-img"
+                />
+              </div>
+              <div class="hex-info">
+                <h4>Vaibhav Kumar</h4>
+                <p class="text-accent mb-2">Team Leader 💡</p>
+                <p class="mb-3">Engineering 3rd Year - East Point College</p>
+                <div class="social-links">
+                  <a
+                    href="https://www.linkedin.com/in/vaibhav-kumar-b366872a6"
+                    target="_blank"
+                    class="text-accent me-2"
+                  >
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a
+                    href="https://github.com/Vaibhavk121"
+                    target="_blank"
+                    class="text-accent"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="hex-container fade-in" style="animation-delay: 0.2s">
+          <div class="hex-card">
+            <div class="hex-content">
+              <div class="hex-img-wrapper">
+                <img
+                  src="{{ url_for('static', filename='images/ankit.jpg') }}"
+                  alt="Ankit Kumar Singh"
+                  class="team-img"
+                />
+              </div>
+              <div class="hex-info">
+                <h4>Ankit Kumar Singh</h4>
+                <p class="text-accent mb-2">Frontend Magician 🎨</p>
+                <p class="mb-3">Engineering 3rd Year - Brindavan College</p>
+                <div class="social-links">
+                  <a
+                    href="https://www.linkedin.com/in/askitendo"
+                    target="_blank"
+                    class="text-accent me-2"
+                  >
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a
+                    href="https://github.com/AskitEndo"
+                    target="_blank"
+                    class="text-accent"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="hex-container fade-in" style="animation-delay: 0.4s">
+          <div class="hex-card">
+            <div class="hex-content">
+              <div class="hex-img-wrapper">
+                <img
+                  src="{{ url_for('static', filename='images/aditya.jpg') }}"
+                  alt="Aditya Srivastava"
+                  class="team-img"
+                />
+              </div>
+              <div class="hex-info">
+                <h4>Aditya Srivastava</h4>
+                <p class="text-accent mb-2">Backend Guru 🌐</p>
+                <p class="mb-3">Engineering 3rd Year - Brindavan College</p>
+                <div class="social-links">
+                  <a
+                    href="https://www.linkedin.com/in/aditya-srivastava-7390aa26a"
+                    target="_blank"
+                    class="text-accent me-2"
+                  >
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a
+                    href="https://github.com/NothingADSR123"
+                    target="_blank"
+                    class="text-accent"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Member 4 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="hex-container fade-in" style="animation-delay: 0.6s">
+          <div class="hex-card">
+            <div class="hex-content">
+              <div class="hex-img-wrapper">
+                <img
+                  src="{{ url_for('static', filename='images/bharat.jpg') }}"
+                  alt="Bharat Kaushik"
+                  class="team-img"
+                />
+              </div>
+              <div class="hex-info">
+                <h4>Bharat Kaushik</h4>
+                <p class="text-accent mb-2">AI Expert 🧠</p>
+                <p class="mb-3">Engineering 3rd Year - Presidency University</p>
+                <div class="social-links">
+                  <a
+                    href="https://www.linkedin.com/in/bharat-kaushik-8661b9262"
+                    target="_blank"
+                    class="text-accent me-2"
+                  >
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a
+                    href="https://github.com/BharatCodingLad"
+                    target="_blank"
+                    class="text-accent"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <h2 class="mb-4 section-title">Get in Touch</h2>
+        <p class="lead mb-5">Have questions? We'd love to hear from you.</p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="glass-card contact-item fade-in">
+              <div class="glass-inner">
+                <div class="cyber-icon">
+                  <i class="fas fa-envelope fa-2x text-accent"></i>
+                  <div class="icon-pulse"></div>
+                </div>
+                <h5>Email</h5>
+                <p>vk0606581@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div
+              class="glass-card contact-item fade-in"
+              style="animation-delay: 0.2s"
+            >
+              <div class="glass-inner">
+                <div class="cyber-icon">
+                  <i class="fas fa-phone fa-2x text-accent"></i>
+                  <div class="icon-pulse"></div>
+                </div>
+                <h5>Phone</h5>
+                <p>+91 9731814995</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div
+              class="glass-card contact-item fade-in"
+              style="animation-delay: 0.4s"
+            >
+              <div class="glass-inner">
+                <div class="cyber-icon">
+                  <i class="fas fa-map-marker-alt fa-2x text-accent"></i>
+                  <div class="icon-pulse"></div>
+                </div>
+                <h5>Location</h5>
+                <p>Bangalore, Karnataka</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} {% block extra_css %}
+<style>
+  .about-hero {
+    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(8, 13, 22, 0.9)),
+      url("https://source.unsplash.com/random/1920x1080/?network") no-repeat
+        center center;
+    background-size: cover;
+    padding: 100px 0;
+    margin-top: -1.5rem;
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237c3aed' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: -1;
+  }
+
+  /* Hexagon Team Cards */
+  .hex-container {
+    perspective: 1000px;
+    margin-bottom: 40px;
+  }
+
+  .hex-card {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+  }
+
+  .hex-card::before,
+  .hex-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transform: skewY(0deg);
+    transition: all 0.5s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 24px;
+    z-index: -1;
+  }
+
+  .hex-container:hover .hex-card::before {
+    transform: skewY(5deg);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+  }
+
+  .hex-container:hover .hex-card::after {
+    transform: skewY(-5deg);
+    border-color: var(--secondary-accent);
+  }
+
+  .hex-content {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.5s ease;
+    overflow: hidden;
+  }
+
+  .hex-container:hover .hex-content {
+    transform: translateY(-10px);
+  }
+
+  .hex-img-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(
+      135deg,
+      var(--accent-color),
+      var(--secondary-accent)
+    );
+    padding: 3px;
+  }
+
+  .team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: transform 0.5s ease;
+  }
+
+  .hex-container:hover .team-img {
+    transform: scale(1.1);
+  }
+
+  .hex-info {
+    text-align: center;
+  }
+
+  .social-links a {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+
+  .social-links a:hover {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  /* Mission Section */
+  .mission-section {
+    position: relative;
+  }
+
+  .network-globe {
+    position: relative;
+    display: inline-block;
+  }
+
+  .pulse-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    opacity: 0;
+    animation: pulse 3s infinite;
+  }
+
+  .delay-1 {
+    animation-delay: 1s;
+  }
+
+  .delay-2 {
+    animation-delay: 2s;
+  }
+
+  @keyframes pulse {
+    0% {
+      width: 100px;
+      height: 100px;
+      opacity: 0.8;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+
+  .cyber-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .cyber-list li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .cyber-check {
+    position: relative;
+    display: inline-block;
+    margin-right: 12px;
+  }
+
+  .cyber-check::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: rgba(124, 58, 237, 0.1);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.8),
+      rgba(8, 13, 22, 0.8)
+    );
+  }
+
+  .contact-item {
+    height: 100%;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .contact-item:hover {
+    transform: translateY(-10px);
+  }
+
+  .cyber-icon {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .icon-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.1);
+    animation: iconPulse 2s infinite;
+  }
+
+  @keyframes iconPulse {
+    0% {
+      width: 30px;
+      height: 30px;
+      opacity: 0.8;
+    }
+    100% {
+      width: 70px;
+      height: 70px;
+      opacity: 0;
+    }
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .hex-img-wrapper {
+      width: 150px;
+      height: 150px;
+    }
+
+    .hex-card {
+      height: 480px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hex-container {
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
+{% endblock %}
