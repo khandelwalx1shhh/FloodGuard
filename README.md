@@ -1,148 +1,171 @@
-# DDoS.AI - Advanced DDoS Detection and Mitigation System
+# 🛡️ FloodGuard — DDoS Detection & Mitigation System
 
-An intelligent system for detecting and mitigating Distributed Denial of Service (DDoS) attacks using AI-powered models for real-time analysis and visualization.
+### 🚀 Advanced Network Security with Real-Time Monitoring
 
-## Project Overview
+---
 
-This project combines machine learning techniques with network traffic analysis to identify and mitigate DDoS attacks. The system consists of:
+## 📌 Overview
 
-- **Backend**: Python-based analytics engine with machine learning models
-- **Frontend**: Interactive visualization and simulation dashboard
+**FloodGuard** is a cybersecurity system designed to detect and mitigate Distributed Denial of Service (DDoS) attacks through intelligent traffic analysis and real-time monitoring.
 
-## Getting Started
+It combines machine learning techniques, network traffic analysis, and interactive visualization to identify abnormal patterns and respond to large-scale network attacks efficiently.
 
-### Prerequisites
+---
 
-#### Backend
+## 🧠 Key Features
 
-- Python 3.8+
-- Required Python libraries (see requirements.bat)
-- Sufficient RAM for ML model training (8GB+ recommended)
+* ⚡ Real-time network traffic monitoring
+* 📊 Interactive visualization dashboard
+* 🎯 Threat scoring and classification
+* 🔍 Anomaly detection using ML models
+* 🌐 Packet-level attack simulation
+* 📈 Graph-based traffic analysis
 
-#### Frontend
+---
 
-- Node.js 14+
-- npm or yarn
+## 🏗️ System Architecture
 
-### Installation
+### 🔙 Backend
 
-#### Backend Setup
+* Python-based analytics engine
+* Handles data processing, detection logic, and ML models
 
-1. Navigate to the backend directory:
+### 🎨 Frontend
 
-   ```bash
-   cd backend
-   ```
+* React-based interface for visualization
+* Uses D3.js for dynamic graphs and charts
 
-2. Install required dependencies:
+### 🤖 Detection Models
 
-   ```bash
-   ./requirements.bat
-   ```
+* **Autoencoder** → Detects anomalies in traffic
+* **Graph Neural Network (GNN)** → Analyzes network relationships
+* **Reinforcement Learning** → Threat scoring
+* **Explainable AI** → Provides decision insights
 
-   or
+---
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+## ⚙️ Tech Stack
 
-3. Prepare dataset (if needed):
-   ```bash
-   python data_preprocessing.py
-   ```
+**Python, Machine Learning, Autoencoders, GNN, Reinforcement Learning, React.js, D3.js, Node.js, REST APIs**
 
-#### Frontend Setup
+---
 
-1. Navigate to the frontend directory:
+## 🚀 Getting Started
 
-   ```bash
-   cd frontendsim
-   ```
+### 🔧 Backend Setup
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash id="a1b9c3"
+cd backend
+pip install -r requirements.txt
+python data_preprocessing.py
+```
 
-## Usage
+---
 
-### Running the Backend
+### ▶️ Run Backend
 
-1. Start the main application:
+```bash id="k9l2m1"
+python app.py
+```
 
-   ```bash
-   cd backend
-   python app.py
-   ```
+---
 
-2. Launch the dashboard (in a separate terminal):
-   ```bash
-   python dashboard_v3.py
-   ```
-   The dashboard will be available at http://localhost:5000
+### 📊 Launch Dashboard
 
-### Running the Frontend
+```bash id="u3x0op"
+python dashboard_v3.py
+```
 
-1. Start the development server:
+Access at:
+👉 http://localhost:5000
 
-   ```bash
-   cd frontendsim
-   npm run dev
-   ```
+---
 
-   Access the frontend at http://localhost:5173
+### 🎨 Frontend Setup
 
-2. For production build:
+```bash id="p9zm21"
+cd frontendsim
+npm install
+npm run dev
+```
 
-   ```bash
-   npm run build
-   ```
+Access at:
+👉 http://localhost:5173
 
-3. To simulate packet attacks on the frontend:
-   ```bash
-   cd frontendsim
-   node server.js
-   ```
-   This will start the attack simulation server that generates packet data for visualization and testing.
+---
 
-### System Capabilities
+### 🔥 Attack Simulation
 
-- Real-time network traffic monitoring
-- Anomaly detection using autoencoders
-- Graph-based traffic analysis with GNN
-- Threat scoring and classification
-- Explainable AI for decision insights
-- Interactive traffic simulation
-- Visual analytics dashboard
+```bash id="t2djsk"
+node server.js
+```
 
-## Project Structure
+---
 
-### Backend Components
+## 📡 System Capabilities
 
-- app.py - Main application entry point
-- autoencoder_model.py - Anomaly detection
-- gnn_model.py - Graph neural network analysis
-- rl_threat_scorer.py - Reinforcement learning scoring
-- xai_explainer.py - Explainable AI component
-- dashboard_v3.py - Visualization dashboard
+* Detects abnormal traffic behavior
+* Classifies DDoS attack patterns
+* Assigns dynamic threat scores
+* Provides insights into attack behavior
+* Visualizes traffic data in real time
+* Simulates attack scenarios for testing
 
-### Frontend Components
+---
 
-- React-based user interface
-- D3.js visualizations
-- Network simulation environment
-- Real-time monitoring panels
+## 📁 Project Structure
 
-## Contributing
+```id="z3a1bc"
+FloodGuard/
+├── backend/
+│   ├── app.py
+│   ├── autoencoder_model.py
+│   ├── gnn_model.py
+│   ├── rl_threat_scorer.py
+│   ├── xai_explainer.py
+│   └── dashboard_v3.py
+├── frontendsim/
+│   ├── React UI
+│   ├── D3 Visualizations
+│   └── Simulation Server
+├── requirements.txt
+└── README.md
+```
 
-Contributions are welcome! Please follow these steps:
+---
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## 🧪 Core Modules
 
-## License
+* **Autoencoder Model** → Detects anomalies in traffic patterns
+* **GNN Model** → Performs graph-based traffic analysis
+* **RL Threat Scorer** → Assigns risk scores dynamically
+* **XAI Explainer** → Explains model decisions
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
+
+## 🔒 Security Capabilities
+
+* Real-time anomaly detection
+* Intelligent attack classification
+* Adaptive threat scoring
+* Simulation-based testing environment
+
+---
+
+## 🎯 Purpose
+
+This project is built for **educational and cybersecurity research purposes**, demonstrating how modern systems detect and mitigate DDoS attacks.
+
+---
+
+## ⭐ Conclusion
+
+FloodGuard represents a modern approach to network security by combining intelligent detection, real-time monitoring, and interactive visualization to effectively defend against DDoS attacks.
+
+---
+
+## 👨‍💻 Developer
+
+**Vansh Khandelwal**
+
+---
